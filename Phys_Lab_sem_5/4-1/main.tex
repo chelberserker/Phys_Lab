@@ -1,0 +1,138 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{tikz}
+\usepackage [utf8x] {inputenc}
+\usepackage [T2A] {fontenc} 
+\usepackage[russian]{babel}
+\usepackage{cmap} 
+\usepackage{ gensymb }
+% Так ссылки в PDF будут активны
+\usepackage[unicode]{hyperref}
+\usepackage{ textcomp }
+\usepackage{indentfirst}
+\usepackage[version=3]{mhchem}
+
+% вы сможете вставлять картинки командой \includegraphics[width=0.7\textwidth]{ИМЯ ФАЙЛА}
+% получается подключать, как минимум, файлы .pdf, .jpg, .png.
+\usepackage{graphicx}
+% Если вы хотите явно указать поля:
+\usepackage[margin=1in]{geometry}
+% Или если вы хотите задать поля менее явно (чем больше DIV, тем больше места под текст):
+% \usepackage[DIV=10]{typearea}
+
+\usepackage{fancyhdr}
+
+\newcommand{\bbR}{\mathbb R}%теперь вместо длинной команды \mathbb R (множество вещественных чисел) можно писать короткую запись \bbR. Вместо \bbR вы можете вписать любую строчку букв, которая начинается с '\'.
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bbN}{\mathbb N}
+\newcommand{\dif}{\mathrm{d}}
+
+\newtheorem{Def}{Определение}
+
+
+\pagestyle{fancy}
+\makeatletter % сделать "@" "буквой", а не "спецсимволом" - можно использовать "служебные" команды, содержащие @ в названии
+\fancyhead[L]{\footnotesize Квантовая физика}%Это будет написано вверху страницы слева
+\fancyhead[R]{\footnotesize ФМХФ МФТИ}
+\fancyfoot[L]{\footnotesize \@author}%имя автора будет написано внизу страницы слева
+\fancyfoot[R]{\thepage}%номер страницы —- внизу справа
+\fancyfoot[C]{}%по центру внизу страницы пусто
+
+\renewcommand{\maketitle}{%
+	\noindent{\bfseries\scshape\large\@title\ \mdseries\upshape}\par
+	\noindent {\large\itshape\@author}
+	\vskip 2ex}
+\makeatother
+\def\dd#1#2{\frac{\partial#1}{\partial#2}}
+
+
+\title{4.1 \\ Определение энергии $\alpha$-частиц по величине их пробега в воздухе}
+\author{Егор Берсенев} 
+\date{16 февраля 2017 г.}
+
+\begin{document}
+	
+	\maketitle
+	\section{Теоретическое введение}
+		Энергию альфа-частиц удобно определять по величине их пробега в веществе. Рассмотрим подробно взаимодействие заряженных частиц с веществом. Альфа-частицы при прохождении вещества чаще всего теряют энергию в результате неупругих столкновений с атомами. Этот процесс можно рассматривать как процесс непрерывного столкновения. Рассеиваемая энергия не превышает $4mE/M$. Атомные электроны можно считать свободными в силу того, что энергия налетающей частицы значительно превышает энергию связи электронов в атомах:
+		\begin{equation}
+		    E_e = \frac{p^2}{2m} = \frac{1}{2m}\left(\frac{Ze^2}{y^2}\cdot\frac{2y}{v}\right) = \frac{2e^4Z^2}{mv^2y^2}
+		\end{equation}
+		Если плотность электронов в среде $n = nZ$, то потеря энергии заряженной частицей на единице пути в результате взаимодействия с электронами в слое $2\pi y\dif y$ будет выражаться как:
+		\begin{equation}
+		    \dif E(y) = \frac{4\pi nZ z^2e^4}{mv^2}\frac{\dif y}{y}
+		\end{equation}
+		Преобразуя выражение и вводя обозначение $\bar{I}$:
+		\begin{equation}
+		    \ln\frac{E_{max}}{E_{min}} = \ln\frac{2mv^2}{\bar{I}}
+		\end{equation}
+		\begin{equation}
+		    \left(\frac{\dif E}{\dif x}\right) \simeq 2\pi\frac{e^4z^2}{mv^2}nZ\ln\frac{2mv^2}{\bar{I}}
+		\end{equation}
+		Величину $\frac{\dif E}{\dif x}$ называют тормозную способностью вещества.
+		Зависимость тормозной способности от пути называется кривой Брэгга.  Две такие кривые для движения $^{210}Po$ и  $^{214}Po$ показаны на рисунке. Характерный подъем называется пиком Брэгга.
+		
+		\begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\textwidth]{pic}
+        \caption{Кривая Брэгга}
+    \end{figure}
+	\section{Экспериментальная часть}
+	    В этой работе мы исследуем длину пробега альфа-частиц тремя способами:
+	    \begin{enumerate}
+	        \item С помощью счетчика Гейгера
+	        \item С помощью сцинтилляционного счетчика
+	        \item С помощью ионизационной камеры
+	    \end{enumerate}
+	    
+	\section{Экспериментальные данные}
+		С помощью счётчика Гейгера исследуем скорость счёта альфа-частиц в зависимости от расстояния до счётчика. Построим график и определим среднюю и экстраполированную длину пробега.
+		\begin{figure}[h!]
+        \centering
+        \includegraphics[width=\textwidth]{geig}
+        \caption{Зависимость количества счётов от расстояния}
+    \end{figure}
+    
+    Отсюда получим экстраполированную длину $\alpha$-частиц: $R = 19.0\pm 1.2\,\textit{мм}$. Приведенная длина пробега равна $R = 20.4\pm 1.3\,\textit{мм}$.
+    Рассчитаем энергию: $E = 3.43 \pm 0.55 \,\mathrm{MEv}$
+    
+        Повторим исследование с помощью ионизационной камеры. Построим график зависимости тока от давления в камере:
+        \pagebreak
+        \begin{figure}[h!]
+        \centering
+        \includegraphics[width=\textwidth]{ioncam}
+        \caption{Зависимость тока от давления }
+    \end{figure}
+    
+    Эктраполированная длина пробега $R = \frac{298}{288}\cdot\frac{77160}{101325}\cdot50 = 39.4\pm 1.2,\textit{мм}$. Отсюда энергия частиц равна $E = 5.33\pm 0.55\,\mathrm{MeV}$.
+    
+    Исследуем длину пробега с помощью сцинтилляционного детектора:
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=\textwidth]{scint.pdf}
+        \caption{Зависимость скорости счёта от расстояния}
+    \end{figure}
+    
+    Эктраполированная длина пробега $R = \frac{298}{288}\cdot\frac{31525}{101325}\cdot90 = 29.0\pm 0.7,\textit{мм}$. Энергия частиц равна $E = 4.33\pm 0.47\,\mathrm{MeV}$.
+    
+    Совсместим результаты измерений в таблицу:
+    \begin{table}[h!]
+\centering
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+                          & $R,\, mm$ & $\sigma R,\, mm$ & $R,\, g/cm^2$ & $\sigma R',\, g/cm^2$ & $E,\,MeV$ & \$\sigma E,\,MeV \\ \hline
+Ион. камера      & 39.4      & 1.2              & 47.3 & 1.4 & 5.33      & 0.55             \\ \hline
+Счётчик Гейгера           & 19        & 1.2              & 22.8 & 1.4 & 3.43      & 0.55             \\ \hline
+Сцинт. детектор & 29        & 0.7              & 34.8 & 0.8 & 4.33      & 0.47             \\ \hline
+\end{tabular}
+\caption{Сводная таблица результатов}
+\end{table}
+
+\pagebreak
+    
+	\section{Вывод и обсуждение результатов}
+    Энергия $\alpha$-частиц при распаде $^{239}Pu$ можно считать приблизительно равной  5.15 МэВ. Наиболее точным методом оказалась ионизационная камера, наименее точным --- счётчик Гейгера. Причины произошедшего состоят в том, что в счетчике Гейгера установлен коллиматор, на выходе из которого установлено слюдяное окошко, снижающее энергию частиц. 
+\end{document}
+
+
